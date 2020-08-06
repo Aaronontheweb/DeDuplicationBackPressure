@@ -5,7 +5,7 @@ using Xunit;
 using Xunit.Abstractions;
 using Akka.Actor;
 
-namespace DeDuplication.Active.Tests
+namespace DeDuplication.Passive.Tests
 {
     public class UnitTest1 : TestKit
     {
