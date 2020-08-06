@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>$(AppNetCoreFramework)</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="app.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Akka.Persistence.Extras" Version="0.5.0" />
+    <PackageReference Include="Akka.Persistence.Sqlite" Version="$(AkkaVersion)" />
+    <PackageReference Include="Petabridge.Cmd.Host" Version="$(PbmVersion)" />
+  </ItemGroup>
+
+</Project>

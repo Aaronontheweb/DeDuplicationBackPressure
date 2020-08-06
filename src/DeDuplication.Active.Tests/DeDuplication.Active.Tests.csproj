@@ -2,7 +2,7 @@
   <Import Project="..\common.props" />
 
   <PropertyGroup>    
-    <TargetFramework>$(NetCoreFramework)</TargetFramework>
+    <TargetFramework>$(TestsNetCoreFramework)</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Petabridge.App\Petabridge.App.csproj" />
+    <ProjectReference Include="..\DeDuplication.Active\DeDuplication.Active.csproj" />
   </ItemGroup>
 
 </Project>

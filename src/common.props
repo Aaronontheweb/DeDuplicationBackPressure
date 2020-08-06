@@ -14,12 +14,13 @@
   </PropertyGroup>
   <PropertyGroup>
     <LibraryFramework>netstandard2.0</LibraryFramework>
-    <NetCoreFramework>netcoreapp3.1</NetCoreFramework>
+    <AppNetCoreFramework>netcoreapp3.0</AppNetCoreFramework>
+    <TestsNetCoreFramework>netcoreapp3.0</TestsNetCoreFramework>
     <NBenchVersion>1.2.2</NBenchVersion>
     <XunitVersion>2.4.1</XunitVersion>
-    <TestSdkVersion>16.6.1</TestSdkVersion>
-    <AkkaVersion>1.4.5</AkkaVersion>
-    <PbmVersion>0.8.0</PbmVersion>
-    <FluentAssertionsVersion>5.10.2</FluentAssertionsVersion>
+    <TestSdkVersion>16.4.0</TestSdkVersion>
+    <AkkaVersion>1.4.9</AkkaVersion>
+    <PbmVersion>0.7.0</PbmVersion>
+    <FluentAssertionsVersion>5.9.0</FluentAssertionsVersion>
   </PropertyGroup>
 </Project>

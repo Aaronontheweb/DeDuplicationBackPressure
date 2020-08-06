@@ -5,7 +5,7 @@ using Xunit;
 using Xunit.Abstractions;
 using Akka.Actor;
 
-namespace Petabridge.App.Tests
+namespace DeDuplication.Active.Tests
 {
     public class UnitTest1 : TestKit
     {
