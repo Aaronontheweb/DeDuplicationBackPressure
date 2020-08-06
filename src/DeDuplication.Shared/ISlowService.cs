@@ -16,7 +16,8 @@ namespace DeDuplication.Shared
     {
         public async Task<Response> Process(Request req)
         {
-            await Task.Delay(ThreadLocalRandom.Current.Next(1, 8));
+            // Task.Delay is in milliseconds
+            await Task.Delay(ThreadLocalRandom.Current.Next(100, 4000));
             return new Response(req.RequestId, ThreadLocalRandom.Current.Next());
         }
     }

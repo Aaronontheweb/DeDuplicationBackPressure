@@ -14,7 +14,7 @@ namespace DeDuplication.Passive
             var config = ConfigurationFactory.ParseString(File.ReadAllText("app.conf"));
             var actorSystem = ActorSystem.Create("ActiveSys", config);
 
-            var receivers = actorSystem.ActorOf(Props.Create(() => new ActiveDeDuplicatingActor("dedup", new SlowService())).WithMailbox("priority-mailbox"), "deduplicating");
+            var receivers = actorSystem.ActorOf(Props.Create(() => new PassiveDeDuplicatingActor("dedup", new SlowService())), "deduplicating");
             var sender = actorSystem.ActorOf(Props.Create(() => new AtLeastOnceSenderActor("sender", receivers)), "sender");
             
             await actorSystem.WhenTerminated;
