@@ -38,7 +38,7 @@ namespace DeDuplication.Passive
 
             Command<FlushStats>(f =>
             {
-                _log.Info("Messages confirmed [{0}] / Messages deduplicated [{1}]", _messagesConfirmed, _messagesDeduped);
+                _log.Info("Messages confirmed [{0}] / Messages deduplicated [{1}] / Duplicate Service Calls [{2}]", _messagesConfirmed, _messagesDeduped, _slowService.DuplicateCalls);
             });
         }
 

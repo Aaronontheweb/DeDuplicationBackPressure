@@ -5,6 +5,7 @@ using Akka.Persistence.Extras;
 using Akka.Streams;
 using Akka.Streams.Dsl;
 using DeDuplication.Shared;
+using static Akka.Streams.ActorAttributes;
 
 namespace DeDuplication.Passive
 {
@@ -38,7 +39,7 @@ namespace DeDuplication.Passive
 
             Command<FlushStats>(f =>
             {
-                _log.Info("Messages confirmed [{0}] / Messages deduplicated [{1}]", _messagesConfirmed, _messagesDeduped);
+                _log.Info("Messages confirmed [{0}] / Messages deduplicated [{1}] / Duplicate Service Calls [{2}]", _messagesConfirmed, _messagesDeduped, _slowService.DuplicateCalls);
             });
         }
 
@@ -73,7 +74,7 @@ namespace DeDuplication.Passive
 
             var self = Self;
 
-            _msgQueue = Source.ActorRef<DeliveryPayloadData>(24, OverflowStrategy.DropHead)
+            _msgQueue = Source.ActorRef<DeliveryPayloadData>(100, OverflowStrategy.DropHead)
                 .Where(x =>
                 {
                     switch (x.MessageToBeProcessed)
@@ -100,6 +101,7 @@ namespace DeDuplication.Passive
                     // bring the original Sender back
                     self.Tell(c.ConfirmableMessage, c.Sender);
                 }))
+                .WithAttributes(new Attributes(new SupervisionStrategy(ex => Akka.Streams.Supervision.Directive.Restart)))
                 .Run(Context.Materializer());
         }
     }
