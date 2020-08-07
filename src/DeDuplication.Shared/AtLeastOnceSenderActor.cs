@@ -29,7 +29,8 @@ namespace DeDuplication.Shared
 
         private readonly ILoggingAdapter _log = Context.GetLogger();
 
-        public AtLeastOnceSenderActor(string persistenceId, IActorRef receivers)
+        public AtLeastOnceSenderActor(string persistenceId, IActorRef receivers) 
+            : base(Persistence.Instance.Apply(Context.System).Settings.AtLeastOnceDelivery.WithRedeliverInterval(TimeSpan.FromMinutes(10)))
         {
             PersistenceId = persistenceId;
             _receivers = receivers;

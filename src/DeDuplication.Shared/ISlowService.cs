@@ -40,7 +40,7 @@ namespace DeDuplication.Shared
         public async Task<Response> Process(Request req)
         {
             // Task.Delay is in milliseconds
-            await Task.Delay(ThreadLocalRandom.Current.Next(100, 4000));
+            await Task.Delay(ThreadLocalRandom.Current.Next(100, 40000));
             if (_ids.Contains(req.RequestId))
             {
                 DuplicateCalls++;
