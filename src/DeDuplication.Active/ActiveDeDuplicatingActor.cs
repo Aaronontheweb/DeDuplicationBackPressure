@@ -7,7 +7,7 @@ using Akka.Streams.Dsl;
 using DeDuplication.Shared;
 using static Akka.Streams.ActorAttributes;
 
-namespace DeDuplication.Passive
+namespace DeDuplication.Active
 {
     public sealed class ActiveDeDuplicatingActor : DeDuplicatingReceiveActor, IWithTimers
     {

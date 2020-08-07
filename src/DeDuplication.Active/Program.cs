@@ -3,9 +3,8 @@ using System.Threading.Tasks;
 using Akka.Actor;
 using Akka.Configuration;
 using DeDuplication.Shared;
-using Petabridge.Cmd.Host;
 
-namespace DeDuplication.Passive
+namespace DeDuplication.Active
 {
     public class Program
     {
